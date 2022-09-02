@@ -83,5 +83,4 @@ class Goal{
     home = json!['home'];
     away = json['away'];
   }
-
 }
