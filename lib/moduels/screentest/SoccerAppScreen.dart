@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:football_app/models/live_matches_model/live_matches_model.dart';
+import 'package:football_app/moduels/screentest/pagescreen.dart';
 
 import '../../layout/cubit/cubit.dart';
 
@@ -24,7 +26,7 @@ class SoccerAppScreen extends StatelessWidget {
           {
             if(snapshot.hasData)
               {
-                return Text("lalal") ;
+                return  PageBody(snapshot.data as List<MatchesModel>);
               }
             else{
               return Center(child: CircularProgressIndicator());
