@@ -19,12 +19,12 @@ class SoccerAppScreen extends StatelessWidget {
           centerTitle: true,
         ),
         body: FutureBuilder(
-          future: footballCubit.geto(context).GetAllMatch(),
+          future: FootballCubit.geto(context).GetAllMatch(),
           builder: (context,snapshot)
           {
             if(snapshot.hasData)
               {
-
+                return Text("lalal") ;
               }
             else{
               return Center(child: CircularProgressIndicator());

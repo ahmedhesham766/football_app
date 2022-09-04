@@ -1,9 +1,11 @@
-abstract class footballStates {}
+abstract class FootballStates {}
 
-class FootballInitialState extends footballStates{}
+class FootballInitialState extends FootballStates{}
 
-class FootballGetAllMatchesLoadingState extends footballStates{}
+class FootballGetAllMatchesLoadingState extends FootballStates{}
 
-class FootballGetAllMatchesSuccessfulState extends footballStates{}
+class FootballGetAllMatchesSuccessfulState extends FootballStates{}
 
-class FootballGetAllMatchesErrorState extends footballStates{}
+class FootballGetAllMatchesErrorState extends FootballStates{}
+
+class FootBallChangeScreen extends FootballStates {}

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:football_app/layout/cubit/cubit.dart';
+import 'package:football_app/layout/football_layout.dart';
 
-import 'moduels/screentest/SoccerAppScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +14,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-       home: SoccerAppScreen(),
+    return BlocProvider(
+      create: (context) => FootballCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+         home:FootballLayout(),
+      ),
     );
   }
 }
