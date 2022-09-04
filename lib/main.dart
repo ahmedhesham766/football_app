@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/layout/cubit/cubit.dart';
 import 'package:football_app/layout/football_layout.dart';
+import 'package:football_app/moduels/screentest/SoccerAppScreen.dart';
 
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       create: (context) => FootballCubit(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-         home:FootballLayout(),
+         home:SoccerAppScreen(),
       ),
     );
   }
