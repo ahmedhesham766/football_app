@@ -11,7 +11,7 @@ class MatchesModel
     this.away,
     this.goal
   });
-  MatchesModel.fromjson(Map<String,dynamic>? json)
+  MatchesModel.fromJson(Map<String,dynamic>? json)
   {
     Fixture = fixture.fromjson(json!['fixture']);
     home = Team.fromjson(json['teams']['home']) as Team?;

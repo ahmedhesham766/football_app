@@ -20,19 +20,24 @@ class SoccerAppScreen extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        body: FutureBuilder(
-          future: FootballCubit.geto(context).GetAllMatch(),
-          builder: (context,snapshot)
-          {
-            if(snapshot.hasData)
-              {
-                return  PageBody(snapshot.data as List<MatchesModel>);
-              }
-            else{
-              return Center(child: CircularProgressIndicator());
-            }
-          },
+        body: InkWell(
+            child: Text('ghfhfgh'),
+
         ),
+
+        // body: FutureBuilder(
+        //   future: FootballCubit.geto(context).getHomeData(),
+        //   builder: (context,snapshot)
+        //   {
+        //     if(snapshot.hasData)
+        //       {
+        //         return  PageBody(snapshot.data as List<MatchesModel>);
+        //       }
+        //     else{
+        //       return Center(child: CircularProgressIndicator());
+        //     }
+        //   },
+        // ),
     );
   }
 }
