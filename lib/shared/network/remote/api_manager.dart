@@ -1,3 +1,4 @@
+/*
 import 'package:http/http.dart';
 
 import '../../constant/constant.dart';
@@ -8,8 +9,8 @@ class FootballApi {
 
 
   static const  headers = {
-    //'x-rapidapi-host': "v3.football.api-sports.io",
-    'x-apisports-key': "9dc71ce9d11083e33484493a81fc2cf6",
+    'x-rapidapi-host': "v3.football.api-sports.io",
+    'x-rapidapi-key': "b2f89fdb1e9008313dc36e2d08805388",
   };
 
-}
+}*/
