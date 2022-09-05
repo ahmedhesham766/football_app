@@ -1,3 +1,4 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:football_app/models/live_matches_model/live_matches_model.dart';
 import 'package:football_app/moduels/screentest/pagescreen.dart';
@@ -20,9 +21,12 @@ class SoccerAppScreen extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        body: InkWell(
-            child: Text('ghfhfgh'),
-
+        body: ConditionalBuilder(
+          condition: FootballCubit.geto(context).matchModel != null,
+          builder: (context) {
+            return  PageBody(FootballCubit.geto(context).matchesLive);
+          },
+          fallback:(context) => Center(child: CircularProgressIndicator()),
         ),
 
         // body: FutureBuilder(

@@ -1,8 +1,9 @@
 import 'dart:io';
-
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:football_app/shared/constant/constant.dart';
+
+import '../../../models/live_matches_model/live_matches_model.dart';
 
 class DioHelper {
 
@@ -36,4 +37,5 @@ class DioHelper {
       url,
       queryParameters: query,);
   }
+
 }
