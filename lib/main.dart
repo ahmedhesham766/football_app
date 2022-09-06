@@ -4,12 +4,21 @@ import 'package:football_app/layout/cubit/cubit.dart';
 import 'package:football_app/layout/cubit/state.dart';
 import 'package:football_app/layout/football_layout.dart';
 import 'package:football_app/moduels/screentest/SoccerAppScreen.dart';
+import 'package:football_app/shared/network/dio_observer.dart';
 import 'package:football_app/shared/network/remote/dio_helper.dart';
 
 
 void main() {
   DioHelper.init();
-  runApp(const MyApp());
+
+  BlocOverrides.runZoned(
+        () {
+      DioHelper.init();
+      runApp(const MyApp());
+    },
+    blocObserver: MyBlocObserver(),
+  );
+
 
 }
 
