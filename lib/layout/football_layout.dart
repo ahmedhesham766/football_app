@@ -27,7 +27,7 @@ class FootballLayout extends StatelessWidget {
                   height: 130.0,
                   decoration: BoxDecoration(
                     color: Colors.black,
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(5.0),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(.5),
@@ -41,38 +41,34 @@ class FootballLayout extends StatelessWidget {
                           physics: BouncingScrollPhysics(),
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return Card(
-                              child: InkWell(
-                                onTap: () {
-                                  FootballCubit.get(context).changeScreen(index);
-                                },
-                                child: Flexible (
-                                        child: Container (
-                                            height: double.infinity,
-                                            width: 180,
-                                            child: Image.asset(cubit.images[index],
-                                                fit: BoxFit.fitHeight),
-                                            ),
-                                    )
-                                  ),
-                              );
-                          },
+                          itemBuilder: (context, index) => buildLeagueItem(context,index),
                           itemCount: 5,
                         ),
                       ),
                     ),
               cubit.leagueScreens[cubit.currentIndex],
-              SizedBox(
-                height: 10,
-              ),
-              Text('Live Matches')
             ],
           ),
-
         );
       },
     );
   }
 
+  Widget buildLeagueItem(context, index) =>
+      Card(
+        child: InkWell(
+            onTap: () {
+              FootballCubit.get(context).changeScreen(index);
+            },
+            child: Flexible (
+              flex: 1,
+              child: Container (
+                height: double.infinity,
+                width: 180,
+                child: Image.asset(FootballCubit.get(context).images[index],
+                    fit: BoxFit.fitHeight),
+              ),
+            )
+        ),
+      );
 }

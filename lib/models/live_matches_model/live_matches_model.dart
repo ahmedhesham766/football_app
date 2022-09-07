@@ -78,13 +78,14 @@ class League {
   late String name;
   String? logo;
   String? flagOfCountry;
-  late String round;
+ String? round;
 
   League(this.id,
       this.name,
       this.logo,
       this.flagOfCountry,
       this.round);
+
   League.fromJson(Map<String ,dynamic> json)
   {
     id = json['id'];
