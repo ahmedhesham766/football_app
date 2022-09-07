@@ -34,7 +34,6 @@ class DataOfMatch {
     goals = Goals.fromJson(json['goals']) ;
   }
 
-
 }
 
 class Fixture {

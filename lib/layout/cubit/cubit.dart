@@ -13,33 +13,40 @@ import 'package:football_app/shared/network/remote/api_manager.dart';
 import 'package:football_app/shared/network/remote/dio_helper.dart';
 
 import 'package:http/http.dart';
+import 'package:intl/intl.dart';
 import '../../shared/constant/constant.dart';
 
 class FootballCubit extends Cubit<FootballStates>
 {
+
   FootballCubit() : super(FootballInitialState());
 
   static FootballCubit get(context) => BlocProvider.of(context);
 
 
-  MatchesModel? matchModel ;
-List<MatchesModel> matchesLive = [];
+ // MatchesModel? matchModel ;
+//List<MatchesModel> matchesLive = [] ;
 
-void getHomeData()
+   MatchesModel? getHomeData(int league)  // id , date, season
   {
     emit(FootballGetAllMatchesLoadingState());
     DioHelper.getData(
       url: 'fixtures',
       query: {
-        "live": "all",
+        "season": "2022",
+        "date": DateFormat("yyyy-MM-dd").format(DateTime.now()),
+        "league" : "$league"
+
       }
     ).then((value)
     {
-      printFullText(value!.data.toString());
-      matchModel = MatchesModel.fromJson(value.data);
-      print(matchModel!.result.toString());
+     // printFullText(value!.data.toString());
+     // matchModel = MatchesModel.fromJson(value.data);
+     // print(matchModel!.result.toString());
       emit(FootballGetAllMatchesSuccessfulState());
-    });/*.catchError((error)
+      return  MatchesModel.fromJson(value!.data);
+    });
+    return null;/*.catchError((error)
     {
       print(error.toString());
       emit(FootballGetAllMatchesErrorState());
@@ -51,7 +58,7 @@ void getHomeData()
 
   List <Widget> leagueScreens =
   [
-    PremierLeague(),
+     PremierLeague(),
     SeriaA(),
     LaLiga(),
     BundesLiga(),

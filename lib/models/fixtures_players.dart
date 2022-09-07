@@ -1,0 +1,331 @@
+class FixturePlayers{
+  late int results;
+  List<DataOfTeam>? dataOfTeam;
+
+  FixturePlayers(
+      this.results,
+      this.dataOfTeam); // response
+
+  FixturePlayers.fromJson(Map<String ,dynamic> json){
+    results = json['results'];
+    json['response'].forEach((element) {
+      dataOfTeam?.add(DataOfTeam.fromJson(element));
+    });
+
+  }
+
+}
+
+class DataOfTeam{
+  late Team team;
+  List<Players>? players;
+
+  DataOfTeam(
+      this.team,
+      this.players);
+
+  DataOfTeam.fromJson(Map<String ,dynamic> json){
+    team = Team.fromJson(json['team']);
+    json['players'].forEach((element){
+      players?.add(Players.fromJson(element));
+    });
+  }
+
+}
+
+class Team {
+  late int id ;
+  late String name;
+  late String logo;
+  late String updateOfTime;
+
+  Team(
+      this.id,
+      this.name,
+      this.logo,
+      this.updateOfTime);
+
+  Team.fromJson(Map<String ,dynamic> json)
+  {
+    id = json['id'];
+    name = json['name'];
+    logo = json['logo'];
+    updateOfTime = json['update'];
+  }
+
+}
+
+class Players{
+  Player? player;
+  List<Statistics>? statistics;
+
+  Players(this.player,
+      this.statistics);
+
+  Players.fromJson(Map<String ,dynamic> json)
+  {
+    player = Player.fromJson(json['player']);
+    json['statistics'].forEach((element)
+    {
+      statistics?.add(Statistics.fromJson(element));
+    });
+  }
+
+}
+
+class Player{
+  late int id;
+  late String name;
+  String? photo;
+
+  Player(this.id,
+      this.name,
+      this.photo);
+
+  Player.fromJson(Map<String ,dynamic> json)
+  {
+    id = json['id'];
+    name = json['name'];
+    photo = json['photo'];
+  }
+
+}
+
+class Statistics{
+  Games? games;
+  late Shots shots;
+  Goals? goals;
+  Passes? passes;
+  Tackles?  tackles;
+  Duels? duels;
+  Dribbles? dribbles;
+  late Fouls fouls;
+  late Cards cards;
+  Penalty? penalty;
+  int? offsides;
+
+  Statistics(
+      this.games,
+      this.shots,
+      this.goals,
+      this.passes,
+      this.tackles,
+      this.duels,
+      this.dribbles,
+      this.fouls,
+      this.cards,
+      this.penalty,
+      this.offsides);
+
+  Statistics.fromJson(Map<String ,dynamic> json)
+  {
+    games = Games.fromJson(json['games']) ;
+    shots = Shots.fromJson(json['shots']) ;
+    goals = Goals.fromJson(json['goals']) ;
+    passes = Passes.fromJson(json['passes']) ;
+    tackles = Tackles.fromJson(json['tackles']) ;
+    duels = Duels.fromJson(json['duels']) ;
+    dribbles = Dribbles.fromJson(json['dribbles']) ;
+    fouls = Fouls.fromJson(json['fouls']) ;
+    cards = Cards.fromJson(json['cards']) ;
+    penalty = Penalty.fromJson(json['penalty']) ;
+    offsides =json['offsides'];
+
+  }
+
+}
+
+class Games {
+  int? minutes;
+  late int number;
+  late String position;
+  String? rating;
+  late bool captain;
+  late bool substitute;
+
+  Games(
+      this.minutes,
+      this.number,
+      this.position,
+      this.rating,
+      this.captain,
+      this.substitute);
+
+  Games.fromJson(Map<String ,dynamic> json)
+  {
+    minutes = json['minutes'] ;
+    number = json['number'];
+    position = json['position'];
+    rating = json['rating'];
+    captain = json['captain'];
+    substitute = json['substitute'] ;
+  }
+
+}
+
+class Shots {
+  late int total;
+  late int onGoal;
+
+  Shots(
+      this.total,
+      this.onGoal);
+
+  Shots.fromJson(Map<String ,dynamic> json)
+  {
+    total = json['total'];
+    onGoal = json['on'];
+  }
+
+}
+
+class Goals {
+  int? total;
+  int? conceded;
+  int? assists;
+  int? saves;
+
+  Goals(
+      this.total,
+      this.conceded,
+      this.assists,
+      this.saves);
+
+  Goals.fromJson(Map<String ,dynamic> json)
+  {
+    total = json['total'];
+    conceded = json['conceded'];
+    assists = json['assists'];
+    saves = json['saves'];
+  }
+}
+
+class Passes {
+  int? total;
+  late int key;
+  String? accuracy;
+
+  Passes(
+      this.total,
+      this.key,
+      this.accuracy);
+
+  Passes.fromJson(Map<String ,dynamic> json)
+  {
+    total = json['total'];
+    key = json['key'];
+    accuracy = json['accuracy'];
+  }
+
+
+}
+
+class Tackles{
+  int? total;
+  late int blocks;
+  late int interceptions;
+
+  Tackles(
+      this.total,
+      this.blocks,
+      this.interceptions);
+
+  Tackles.fromJson(Map<String ,dynamic> json)
+  {
+    total = json['total'];
+    blocks = json['blocks'];
+    interceptions = json['interceptions'];
+  }
+
+
+}
+
+class Duels {
+  int? total;
+  int? won;
+
+  Duels(
+      this.total,
+      this.won);
+
+  Duels.fromJson(Map<String ,dynamic> json)
+  {
+    total = json['total'];
+    won = json['won'];
+  }
+
+}
+
+class Dribbles {
+  late int attempts;
+  late int success;
+  int? past;
+
+  Dribbles(
+      this.attempts,
+      this.success,
+      this.past);
+
+  Dribbles.fromJson(Map<String ,dynamic> json)
+  {
+    attempts = json['attempts'];
+    success = json['success'];
+    past = json['past'];
+  }
+}
+
+class Fouls {
+  late int drawn;
+  late int committed;
+
+  Fouls(
+      this.drawn,
+      this.committed);
+  Fouls.fromJson(Map<String ,dynamic> json)
+  {
+    drawn = json['drawn'];
+    committed = json['committed'];
+  }
+
+}
+
+class Cards {
+  late int yellow;
+  late int red;
+
+  Cards(
+      this.yellow,
+      this.red);
+
+  Cards.fromJson(Map<String ,dynamic> json)
+  {
+    yellow = json['yellow'];
+    red = json['red'];
+  }
+
+}
+
+class Penalty{
+  late String scored;
+  String? won;
+  String? commited;
+  late String missed;
+  late String saved;
+
+  Penalty(
+      this.won,
+      this.commited,
+      this.scored,
+      this.missed,
+      this.saved);
+
+  Penalty.fromJson(Map<String ,dynamic> json)
+  {
+    won = json['won'] ;
+    commited = json['commited'];
+    scored = json['scored'];
+    missed = json['missed'];
+    saved = json['saved'];
+  }
+}
+

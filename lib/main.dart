@@ -4,9 +4,11 @@ import 'package:football_app/layout/cubit/cubit.dart';
 import 'package:football_app/layout/cubit/state.dart';
 import 'package:football_app/layout/football_layout.dart';
 import 'package:football_app/moduels/screentest/SoccerAppScreen.dart';
+import 'package:football_app/shared/constant/constant.dart';
 import 'package:football_app/shared/network/dio_observer.dart';
 import 'package:football_app/shared/network/remote/dio_helper.dart';
 import 'package:football_app/shared/style/theme.dart';
+import 'package:intl/intl.dart';
 
 
 void main() {
@@ -30,10 +32,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FootballCubit()..getHomeData(),
+      create: (context) => FootballCubit()..getHomeData(idOfLeagues[0]),
       child: BlocConsumer<FootballCubit,FootballStates>(
         listener:(context, state) {}  ,
         builder: (context, state) {
+          print(DateFormat("yyyy-MM-dd").format(DateTime.now())) ;
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: lightmode,

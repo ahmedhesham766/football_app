@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/layout/cubit/cubit.dart';
 import 'package:football_app/layout/cubit/state.dart';
+import 'package:football_app/shared/constant/constant.dart';
 import 'package:football_app/shared/style/color.dart';
 
 class FootballLayout extends StatelessWidget {
@@ -15,8 +16,8 @@ class FootballLayout extends StatelessWidget {
         var cubit = FootballCubit.get(context);
         return Scaffold(
           appBar: AppBar(
-            title:
-            cubit.title_in_appbar[cubit.currentIndex],
+            title: Text('${DateTime.now().toString()}'),
+           // cubit.title_in_appbar[cubit.currentIndex],
           ),
           body:
           Column(
@@ -59,6 +60,7 @@ class FootballLayout extends StatelessWidget {
         child: InkWell(
             onTap: () {
               FootballCubit.get(context).changeScreen(index);
+
             },
             child: Flexible (
               flex: 1,
