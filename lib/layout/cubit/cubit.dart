@@ -19,22 +19,7 @@ class FootballCubit extends Cubit<FootballStates>
 {
   FootballCubit() : super(FootballInitialState());
 
-  static FootballCubit geto(context) => BlocProvider.of(context);
-
-  // Future<List<MatchesModel>> GetAllMatch()
-  // async {
-  //     Response res = await get(FootballApi.liveMatchesapiUrl,headers: FootballApi.headers);
-  //     var body;
-  //     if(res.statusCode == 200){
-  //     body = jsonDecode(res.body);
-  //     List<dynamic> matchesList = body['response'];
-  //     print("Api service: ${body}"); // to debug
-  //     List<MatchesModel> matches = matchesList
-  //         .map((dynamic item) => MatchesModel.fromjson(item))
-  //         .toList();
-  //
-  //     return matches;}
-  // }
+  static FootballCubit get(context) => BlocProvider.of(context);
 
 
   MatchesModel? matchModel ;
@@ -52,7 +37,7 @@ void getHomeData()
     {
       printFullText(value!.data.toString());
       matchModel = MatchesModel.fromJson(value.data);
-      print(matchModel!.dataOfMatches?[0].teams!.home!.name.toString());
+      print(matchModel!.result.toString());
       emit(FootballGetAllMatchesSuccessfulState());
     });/*.catchError((error)
     {
@@ -72,13 +57,25 @@ void getHomeData()
     BundesLiga(),
     FrenchLeague(),
   ];
-  List<String> title_in_appbar =
+  List<Text> title_in_appbar =
   [
-    'Laliga',
-    'Primierleague',
-    'Seria A',
-    ''
+    Text('PrimierLeague',style: TextStyle(color: Colors.purple)),
+    Text('SeriaA',style: TextStyle(color: Colors.blue),),
+    Text('LaLiga',style: TextStyle(color: Colors.yellow.shade800),),
+    Text('BundesLiga',style: TextStyle(color: Colors.red),),
+    Text('Ligue1',style: TextStyle(color: Colors.grey),)
   ];
+
+
+  List<String> images = [
+    'assets/images/primierliga.png',
+    'assets/images/seriaA.png',
+    'assets/images/laliga.png',
+    'assets/images/bundesliga.png',
+    'assets/images/ligue1.png',
+  ];
+
+
 
   void changeScreen(int index)
   {

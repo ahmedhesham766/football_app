@@ -6,6 +6,7 @@ import 'package:football_app/layout/football_layout.dart';
 import 'package:football_app/moduels/screentest/SoccerAppScreen.dart';
 import 'package:football_app/shared/network/dio_observer.dart';
 import 'package:football_app/shared/network/remote/dio_helper.dart';
+import 'package:football_app/shared/style/theme.dart';
 
 
 void main() {
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
+            theme: lightmode,
             home: FootballLayout(),
           ) ;
         } ,

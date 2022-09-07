@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'color.dart';
+
 ThemeData lightmode = ThemeData(
     inputDecorationTheme:  InputDecorationTheme(
     ),
@@ -14,8 +16,8 @@ textTheme: const TextTheme(
   scaffoldBackgroundColor: Colors.white,
   appBarTheme: AppBarTheme(
     titleTextStyle: TextStyle(
-        fontFamily: 'Qilgabe',
-        color: Colors.black,
+        fontFamily: 'Playfair Display Regular',
+        color: color_of_app,
         fontWeight: FontWeight.bold,
         fontSize: 30.0
     ),

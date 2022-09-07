@@ -58,7 +58,7 @@ class Fixture {
 class Status{
   String? longHalf ;
   String? shortHalf;
-  String? elapsedTime;
+  int? elapsedTime;
 
   Status(
       this.longHalf,
