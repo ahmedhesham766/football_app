@@ -5,7 +5,6 @@ import 'package:football_app/layout/cubit/state.dart';
 import 'package:football_app/shared/style/color.dart';
 
 class FootballLayout extends StatelessWidget {
-  const FootballLayout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +58,11 @@ class FootballLayout extends StatelessWidget {
         child: InkWell(
             onTap: () {
               FootballCubit.get(context).changeScreen(index);
+
+
             },
-            child: Flexible (
-              flex: 1,
+            child: Expanded (
               child: Container (
-                height: double.infinity,
                 width: 180,
                 child: Image.asset(FootballCubit.get(context).images[index],
                     fit: BoxFit.fitHeight),

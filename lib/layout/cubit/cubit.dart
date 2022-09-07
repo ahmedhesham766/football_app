@@ -76,7 +76,6 @@ void getHomeData()
   ];
 
 
-
   void changeScreen(int index)
   {
     currentIndex = index ;
