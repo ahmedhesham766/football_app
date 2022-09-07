@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home:SoccerAppScreen(),
+            home: FootballLayout(),
           ) ;
         } ,
 

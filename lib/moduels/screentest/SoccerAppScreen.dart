@@ -24,7 +24,7 @@ class SoccerAppScreen extends StatelessWidget {
         body: ConditionalBuilder(
           condition: FootballCubit.geto(context).matchModel != null,
           builder: (context) {
-            return  PageBody(FootballCubit.geto(context).matchesLive);
+            return  Text('s');//PageBody(FootballCubit.geto(context).matchModel!.DataOfMatches);
           },
           fallback:(context) => Center(child: CircularProgressIndicator()),
         ),

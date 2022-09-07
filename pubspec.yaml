@@ -62,10 +62,20 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/laliga.jpg
+    - assets/images/primierliga.png
+    - assets/images/seriaA.png
+    - assets/images/bundesliga.png
+    - assets/images/ligue1.png
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-
+  fonts:
+    - family: Qilgabe
+      fonts:
+        - asset: assets/fonts/Qilgabe-d9EBE.otf
+          weight: 700
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

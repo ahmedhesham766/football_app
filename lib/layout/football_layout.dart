@@ -28,7 +28,7 @@ class FootballLayout extends StatelessWidget
                   physics: BouncingScrollPhysics(),
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context,index ) => buildLeagueItem(index,context) ,
+                  itemBuilder: (context,index) => buildLeagueItem(index,context) ,
                   separatorBuilder: (context,index ) => SizedBox(width: 5.0,),
                   itemCount: 5,
                 ),
@@ -43,7 +43,10 @@ class FootballLayout extends StatelessWidget
     );
   }
   Widget  buildLeagueItem(index,context) => InkWell(
-    onTap:() {FootballCubit.geto(context).changeScreen(index);},
+    onTap:() {
+      FootballCubit.geto(context).changeScreen(index);
+      },
+
     child: Container(
       width: 80.0,
       height: 80.0,
