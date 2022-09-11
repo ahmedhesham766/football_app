@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +11,7 @@ import 'package:football_app/moduels/league/premier_league.dart';
 import 'package:football_app/moduels/league/seriaA.dart';
 import 'package:football_app/shared/network/remote/api_manager.dart';
 import 'package:football_app/shared/network/remote/dio_helper.dart';
+import 'package:football_app/shared/style/color.dart';
 
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
@@ -23,42 +24,39 @@ class FootballCubit extends Cubit<FootballStates>
 
   static FootballCubit get(context) => BlocProvider.of(context);
 
+   MatchesModel? matchModel ;
+   int? leagueId ;
 
- // MatchesModel? matchModel ;
-//List<MatchesModel> matchesLive = [] ;
-
-   MatchesModel? getHomeData(int league)  // id , date, season
+  void getHomeData({leagueId})  // id , date, season
   {
     emit(FootballGetAllMatchesLoadingState());
-    DioHelper.getData(
-      url: 'fixtures',
-      query: {
-        "season": "2022",
-        "date": DateFormat("yyyy-MM-dd").format(DateTime.now()),
-        "league" : "$league"
 
-      }
-    ).then((value)
-    {
-     // printFullText(value!.data.toString());
-     // matchModel = MatchesModel.fromJson(value.data);
-     // print(matchModel!.result.toString());
-      emit(FootballGetAllMatchesSuccessfulState());
-      return  MatchesModel.fromJson(value!.data);
-    });
-    return null;/*.catchError((error)
-    {
-      print(error.toString());
-      emit(FootballGetAllMatchesErrorState());
-    });*/
+        DioHelper.getData(
+            url: 'fixtures',
+            query: {
+              "season": '2022',
+              "date": DateFormat("yyyy-MM-dd").format(DateTime.now()),
+              "league" : '$leagueId'
+            }
+        ).then((value)
+        {
+          printFullText(value!.data.toString());
+          emit(FootballGetAllMatchesSuccessfulState());
+          matchModel = MatchesModel.fromJson(value.data);
+          print(matchModel!.dataOfMatches[0].teams!.home!.name.toString());
+        }).catchError((error)
+        {
+          print(error.toString());
+          emit(FootballGetAllMatchesErrorState());
+        });
+
   }
-
 
   int currentIndex = 0 ;
 
   List <Widget> leagueScreens =
   [
-     PremierLeague(),
+    PremierLeague(),
     SeriaA(),
     LaLiga(),
     BundesLiga(),
@@ -82,6 +80,24 @@ class FootballCubit extends Cubit<FootballStates>
     'assets/images/ligue1.png',
   ];
 
+
+
+  Color get itemColor {
+    switch (leagueId) {
+      case 39:
+        return Colors.purple;
+      case 135:
+        return Colors.blue;
+      case 140:
+        return Colors.yellow.shade800;
+      case 78:
+        return Colors.red;
+      case 61:
+        return Colors.grey;
+      default:
+        return color_of_app;
+    }
+  }
 
   void changeScreen(int index)
   {

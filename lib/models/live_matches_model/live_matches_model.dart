@@ -1,6 +1,6 @@
 class MatchesModel {
   late int result ;
-  List<DataOfMatch>? dataOfMatches = [];
+  List<DataOfMatch> dataOfMatches = [];
 
   MatchesModel(this.result, this.dataOfMatches);
 
@@ -9,7 +9,7 @@ class MatchesModel {
     result = json['results'] ;
     json['response'].forEach((element)
     {
-      dataOfMatches?.add(DataOfMatch.fromJson(element));
+      dataOfMatches.add(DataOfMatch.fromJson(element));
     });
   }
 }

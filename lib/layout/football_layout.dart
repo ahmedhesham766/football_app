@@ -60,11 +60,14 @@ class FootballLayout extends StatelessWidget {
             onTap: () {
               FootballCubit.get(context).changeScreen(index);
             },
-            child: Flexible (
-              flex: 1,
+            child:  Container (
+              width: MediaQuery.of(context).size.width/2,
               child: Container (
                 height: double.infinity,
                 width: 180,
+                decoration: BoxDecoration(
+                  color:  FootballCubit.get(context).currentIndex == index ?  Colors.cyanAccent : Colors.white
+                ),
                 child: Image.asset(FootballCubit.get(context).images[index],
                     fit: BoxFit.fitHeight),
               ),

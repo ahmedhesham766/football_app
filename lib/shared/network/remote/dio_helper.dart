@@ -1,3 +1,4 @@
+
 import 'dart:io';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
@@ -23,6 +24,7 @@ class DioHelper {
       return client;
     };
   }
+
 
   static Future<Response?> getData({
     required String url,

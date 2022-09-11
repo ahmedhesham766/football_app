@@ -8,9 +8,9 @@ void printFullText(String text)
 }
 
  const List<int> idOfLeagues =[
-  1,
-  2,
-  3,
-  4,
-  5,
+  39, //primierleague
+  135, //seriaA
+  140, //laliga
+  78, //bundesliga
+  61, //ligue1
  ];

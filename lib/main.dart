@@ -32,11 +32,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FootballCubit()..getHomeData(idOfLeagues[0]),
+      create: (context) => FootballCubit()..getHomeData(leagueId: idOfLeagues[0]),
       child: BlocConsumer<FootballCubit,FootballStates>(
         listener:(context, state) {}  ,
         builder: (context, state) {
           print(DateFormat("yyyy-MM-dd").format(DateTime.now())) ;
+          print(idOfLeagues[FootballCubit.get(context).currentIndex]);
+
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: lightmode,
