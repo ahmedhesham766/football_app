@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/layout/cubit/cubit.dart';
@@ -13,7 +15,8 @@ import 'package:intl/intl.dart';
 
 void main() {
   DioHelper.init();
-
+  const oneMin = Duration(seconds:60);
+  Timer.periodic(oneMin, (Timer t) => FootballCubit().getHomeData(leagueId: 2));
   BlocOverrides.runZoned(
         () {
       DioHelper.init();
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FootballCubit()..getHomeData(leagueId: idOfLeagues[0]),
+      create: (context) => FootballCubit(),
       child: BlocConsumer<FootballCubit,FootballStates>(
         listener:(context, state) {}  ,
         builder: (context, state) {

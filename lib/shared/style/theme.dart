@@ -8,7 +8,7 @@ ThemeData lightmode = ThemeData(
 textTheme: const TextTheme(
   bodyText1: TextStyle(
     fontFamily:  'Qilgabe',
-      fontSize: 20.0,
+      fontSize: 27.0,
       fontWeight: FontWeight.w600,
       color: Colors.black
   ),

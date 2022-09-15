@@ -71,6 +71,7 @@ flutter:
     - assets/images/seriaA.png
     - assets/images/bundesliga.png
     - assets/images/ligue1.png
+    - assets/images/schedule.png
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

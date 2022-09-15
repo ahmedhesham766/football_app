@@ -25,7 +25,7 @@ class FootballCubit extends Cubit<FootballStates>
   static FootballCubit get(context) => BlocProvider.of(context);
 
    MatchesModel? matchModel ;
-   int? leagueId ;
+   int? leagueId0 ;
 
   void getHomeData({leagueId})  // id , date, season
   {
@@ -44,6 +44,9 @@ class FootballCubit extends Cubit<FootballStates>
           emit(FootballGetAllMatchesSuccessfulState());
           matchModel = MatchesModel.fromJson(value.data);
           print(matchModel!.dataOfMatches[0].teams!.home!.name.toString());
+
+           leagueId0 = leagueId;
+
         }).catchError((error)
         {
           print(error.toString());
@@ -83,8 +86,8 @@ class FootballCubit extends Cubit<FootballStates>
 
 
   Color get itemColor {
-    switch (leagueId) {
-      case 39:
+    switch (leagueId0) {
+      case 2:  //39
         return Colors.purple;
       case 135:
         return Colors.blue;
